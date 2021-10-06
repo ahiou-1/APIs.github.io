@@ -1,4 +1,4 @@
-const endpoint1 = 'http://openlibrary.org/search.json';
+const endpoint1 = 'https://openlibrary.org/search.json';
 const search = document.querySelector('.search')
 const book1 = document.querySelector('#book1');
 const book2 = document.querySelector('#book2');
