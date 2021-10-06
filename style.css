@@ -1,0 +1,57 @@
+:root {
+    --headerFontSize: 24px;
+    --lineColor: rgb(243, 243, 243);
+    --spanColor: rgb(111, 133, 255);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 20px;
+}
+
+header {
+    font-weight: 700;
+    font-family: 'Fira Mono', monospace;
+    font-size: var(--headerFontSize);
+}
+
+section {
+    margin: 20px 0px;
+}
+
+.intro {
+    font-weight: 500;
+}
+
+.date {
+    display: inline;
+}
+
+.search {
+    margin: 20px 0px 10px 0px;
+    padding: 5px 5px;
+    border-radius: 4px;
+    width: 300px;
+}
+
+hr {
+    border: 1px solid #000;
+}
+
+ul {
+    padding-left: 0px;
+}
+
+li {
+    font-weight: 500;
+    font-family: 'Fira Mono', monospace;
+    padding: 10px 0px;
+    list-style: none;
+}
+
+span {
+    font-style: italic;
+    color: var(--spanColor);
+}
