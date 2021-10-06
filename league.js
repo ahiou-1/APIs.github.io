@@ -6,10 +6,8 @@ const required = {
     firstEndpoint: 'https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/',
     secondEndpoint: 'https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/',
     thirdEndpoint: 'https://asia.api.riotgames.com/lol/match/v5/matches/',
-    puuid: 'oD1ZQdnBCiWPFeNHaoHehd72CRF8jxYnDi6VlcH_P8taV_zYFR6PVmRTJ7aJRAKoQjzmNzQWwHbNpg',
     key: 'RGAPI-9669e5ce-76e8-4270-a5d1-d4fe36912ad8',
 }
-// https://asia.api.riotgames.com/lol/match/v5/matches/KR_5029675313?api_key=RGAPI-9669e5ce-76e8-4270-a5d1-d4fe36912ad8
 
 const getLeague = async () => {
     const summoner = searchSummoner.value;
