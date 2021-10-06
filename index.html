@@ -8,10 +8,11 @@
     <script src="weather.js" defer></script>
     <script src="book.js" defer></script>
     <script src="covid.js" defer></script>
+    <script src="league.js" defer></script>
     <script src="test.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <!-- <script type="module" src="app.js" defer></script> -->
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
@@ -40,6 +41,7 @@
             English Book Search - Open Library API
         </header>
         <input type="text" class="search" onkeyup="pressEnter(event);" placeholder="Search English books."> 
+        <p class="buffering"></p>
         <ul class="info">
             <span>Searching could take more than 20 seconds.</span>
             <li id="book1"></li>
@@ -61,5 +63,15 @@
     </section>
     <hr style="border: solid 1px rgb(240, 240, 240); width: 98vw;">
 
+    <section class="league">
+        <header class="forth">
+            Search Your Last Game - League of Legend API
+        </header>
+        <input type="text" onkeyup="pressEnterLeague(event);" class="searchSummoner" placeholder="Summoner's name: kr server">
+        <ul class="info">
+            <li id="summoner-name">Summoner's name</li>
+            <li id="summoner-level">Summoner's level</li>
+        </ul>
+    </section>
 </body>
 </html>

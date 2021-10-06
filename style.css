@@ -36,6 +36,10 @@ section {
     width: 300px;
 }
 
+.buffering {
+    animation: blink-effect 500ms linear infinite;
+}
+
 hr {
     border: 1px solid #000;
 }
@@ -45,7 +49,7 @@ ul {
 }
 
 li {
-    font-weight: 500;
+    font-weight: 400;
     font-family: 'Fira Mono', monospace;
     padding: 10px 0px;
     list-style: none;

@@ -23,6 +23,7 @@ const getWeather = async () => {
         }
         else{
             first.textContent = `${city} - OpenWeather API is not responding.`
+            info2.textContent = `The response status from OpenWeather API is ${connection}.`
             throw new Error('response not working')
         }
     } catch(error) {

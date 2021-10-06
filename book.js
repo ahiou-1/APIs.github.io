@@ -3,6 +3,8 @@ const search = document.querySelector('.search')
 const book1 = document.querySelector('#book1');
 const book2 = document.querySelector('#book2');
 const book3 = document.querySelector('#book3');
+const buffering = document.querySelector('.buffering')
+
 
 const getBook = async () => {
     const value = search.value.split(' ').join('+')
@@ -24,6 +26,7 @@ const getBook = async () => {
             book1.innerHTML = `1. ${title1} by ${author1}. link: <a href="${link1}" target="_blank">click</a>`
             book2.innerHTML = `2. ${title2} by ${author2}. link: <a href="${link2}" target="_blank">click</a>`
             book3.innerHTML = `3. ${title3} by ${author3}. link: <a href="${link3}" target="_blank">click</a>`
+            buffering.textContent = '';
         } else {
             throw new Error('nO!!!!!!')
         }
@@ -36,6 +39,7 @@ function pressEnter(event) {
     if (event.keyCode == 13) {
         getBook();
         search.value = '';
+        buffering.textContent = 'searching...'
     }
 }
 
