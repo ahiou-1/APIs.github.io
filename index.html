@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="app.js" defer></script>
+    <script src="weather.js" defer></script>
+    <script src="book.js" defer></script>
+    <script src="covid.js" defer></script>
+    <script src="test.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&display=swap" rel="stylesheet">
+    <!-- <script type="module" src="app.js" defer></script> -->
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <section class="date">
+        <header class="intro">
+
+        </header>
+    </section>
+    <hr style="border: solid 1px rgb(240, 240, 240); width: 98vw;">
+
+    <section class="weatherAPI">
+        <header class="first">
+            
+        </header>
+        <ul class="info">
+            <li id="a"></li>
+            <li id="b"></li>
+        </ul>
+    </section>
+    <hr style="border: solid 1px rgb(240, 240, 240); width: 98vw;">
+
+    <section class="book-search">
+        <header class="second">
+            English Book Search - Open Library API
+        </header>
+        <input type="text" class="search" onkeyup="pressEnter(event);" placeholder="Search English books."> 
+        <ul class="info">
+            <span>Searching could take more than 20 seconds.</span>
+            <li id="book1"></li>
+            <li id="book2"></li>
+            <li id="book3"></li>
+        </ul>
+    </section>
+    <hr style="border: solid 1px rgb(240, 240, 240); width: 98vw;">
+
+    <section class="covid-tracker">
+        <header class="third">
+            Covid-19 Status in South Korea - Coronavirus COVID19 API
+        </header>
+        <ul class="info">
+            <span>This data is from 3 days before.</span>
+            <li id="confirmed"></li>
+            <li id="death"></li>
+        </ul>
+    </section>
+    <hr style="border: solid 1px rgb(240, 240, 240); width: 98vw;">
+
+</body>
+</html>
