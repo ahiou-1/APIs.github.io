@@ -1,16 +1,19 @@
 const searchSummoner = document.querySelector('.searchSummoner');
-const summonerName = document.querySelector('#summoner-name')
+const summonerNickName = document.querySelector('#summoner-name')
 const summonerLevel = document.querySelector('#summoner-level')
+const matchTable = document.querySelector('.table');
+
+
 
 const required = {
     firstEndpoint: 'https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/',
     secondEndpoint: 'https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/',
     thirdEndpoint: 'https://asia.api.riotgames.com/lol/match/v5/matches/',
-    key: 'RGAPI-9669e5ce-76e8-4270-a5d1-d4fe36912ad8',
+    key: 'RGAPI-15608c84-b89d-4aa4-aa98-7f899ebf72e8',
 }
 
 const getLeague = async () => {
-    const summoner = searchSummoner.value;
+    const summoner = searchSummoner.value.toLowerCase();
     const urlToFetch = `${required['firstEndpoint']}${summoner}?api_key=${required['key']}`
     try {
         const response = await fetch(urlToFetch);
@@ -18,7 +21,7 @@ const getLeague = async () => {
             const jsonResponse = await response.json();
             console.log(jsonResponse);
             const puuid = jsonResponse.puuid;
-            summonerName.textContent = `Summoner's name: ${jsonResponse.name}`
+            summonerNickName.textContent = `Summoner's name: ${jsonResponse.name}`
             summonerLevel.textContent = `Summoner's level: ${jsonResponse.summonerLevel}` 
             try{
                 const matches = await fetch(`${required['secondEndpoint']}${puuid}/ids?start=0&count=3&api_key=${required['key']}`)
@@ -29,6 +32,57 @@ const getLeague = async () => {
                     if (matchResponse.ok) {
                         const jsonMatchDetail = await matchResponse.json();
                         console.log(jsonMatchDetail);
+                        const participantsArray = jsonMatchDetail.info.participants;
+
+                        for (let i = 0; i < jsonMatchDetail.info.participants.length; i++) {
+                            if(participantsArray[i].summonerName.toLowerCase() == summoner) { 
+                                const gameDetails = {
+                                    winLose: jsonMatchDetail.info.participants[i].win,
+                                    champion: jsonMatchDetail.info.participants[i].championName,
+                                    gameMode: jsonMatchDetail.info.gameMode,
+                                    kills: jsonMatchDetail.info.participants[i].kills,
+                                    deaths: jsonMatchDetail.info.participants[i].deaths,
+                                    assists: jsonMatchDetail.info.participants[i].assists,
+                                }
+                                if(gameDetails.winLose) {
+                                    gameDetails.winLose = 'WIN';
+                                } else {
+                                    gameDetails.winLose = 'LOSE';
+                                }
+                                console.log(gameDetails)
+
+                                matchTable.innerHTML = `
+                                <table>
+                    <thead>
+                        <tr>
+                            <th>Win/Lose</th>
+                            <th>Champion</th>
+                            <th>Game Mode</th>
+                            <th>Kills</th>
+                            <th>Deaths</th>
+                            <th>Assists</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>${gameDetails.winLose}</td>
+                            <td>${gameDetails.champion}</td>
+                            <td>${gameDetails.gameMode}</td>
+                            <td>${gameDetails.kills}</td>
+                            <td>${gameDetails.deaths}</td>
+                            <td>${gameDetails.assists}</td>
+                            <td class="moreBtn1"><span>more</span></td>
+                        </tr>
+                        <tr class="toggle1">
+                            <td>information</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                                `
+                            } 
+                        }
                     }
                 } catch(e) {
                     console.log(e)
@@ -41,6 +95,7 @@ const getLeague = async () => {
         }
     } catch(e) {
         console.log(e);
+        matchTable.innerHTML = '<span>Summoner Not Found.</span>'
     }
 }
 
@@ -52,4 +107,6 @@ function pressEnterLeague(event) {
         
     }
 }
+
+
 

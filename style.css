@@ -29,7 +29,7 @@ section {
     display: inline;
 }
 
-.search {
+.search, .searchSummoner{
     margin: 20px 0px 10px 0px;
     padding: 5px 5px;
     border-radius: 4px;
@@ -58,4 +58,37 @@ li {
 span {
     font-style: italic;
     color: var(--spanColor);
+}
+
+/* table */
+
+table {
+    border: 1px solid papayawhip;
+    border-collapse: collapse;
+}
+
+th, td {
+    width: 90px;
+}
+
+td {
+    text-align: center;
+    padding: 5px 0px;
+}
+
+thead {
+    background-color: var(--spanColor);
+}
+
+thead, tr {
+    border: 1px solid rgb(243, 243, 243);
+}
+
+.toggle1, .toggle2, .toggle3 {
+    display: none;
+}
+
+.moreBtn1, .moreBtn2, .moreBtn3 {
+    cursor: pointer;
+    color: grey;
 }
