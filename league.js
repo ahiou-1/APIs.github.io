@@ -9,7 +9,7 @@ const required = {
     firstEndpoint: 'https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/',
     secondEndpoint: 'https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/',
     thirdEndpoint: 'https://asia.api.riotgames.com/lol/match/v5/matches/',
-    key: 'RGAPI-15608c84-b89d-4aa4-aa98-7f899ebf72e8',
+    key: 'RGAPI-c82398c3-6a3c-4dac-b4cc-9ba71af95263',
 }
 
 const getLeague = async () => {
