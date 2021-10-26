@@ -72,7 +72,7 @@ const getLeague = async () => {
                             <td>${gameDetails.kills}</td>
                             <td>${gameDetails.deaths}</td>
                             <td>${gameDetails.assists}</td>
-                            <td class="moreBtn1"><span>more</span></td>
+                            
                         </tr>
                         <tr class="toggle1">
                             <td>information</td>
